@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>二维码登录</title>
+    <!-- 导入样式 -->
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
+    <!-- 导入 Vue 3 -->
+    <script src="//unpkg.com/vue@next"></script>
+    <!-- 导入组件库 -->
+    <script src="//unpkg.com/element-plus"></script>
+</head>
+
+<body>
+<div id="app">
+    <el-button @click="showDialog">Default</el-button>
+    <el-dialog
+        v-model="dialogVisible"
+        title="Tips"
+        width="30%"
+    >
+        <span>This is a message</span>
+        <template #footer>
+        <span class="dialog-footer">
+            <el-button @click="dialogVisible = false">Cancel</el-button>
+            <el-button type="primary" @click="dialogVisible = false"
+            >Confirm</el-button
+            >
+        </span>
+        </template>
+    </el-dialog>
+</div>
+
+<script>
+
+    const App = {
+        data() {
+            return {
+                message: "Hello Element Plus",
+                dialogVisible: false
+            };
+        },
+        methods: {
+            showDialog() {
+                this.dialogVisible = !this.dialogVisible;
+            }
+        },
+    };
+    const app = Vue.createApp(App);
+    app.use(ElementPlus);
+    app.mount("#app");
+</script>
+</body>
+
+</html>
